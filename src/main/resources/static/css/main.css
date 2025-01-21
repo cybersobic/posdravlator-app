@@ -2,6 +2,9 @@
     margin: 0;
     font-family: Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif; 
 }
+body {
+    background-color: whitesmoke;
+}
 header {
     background: -webkit-linear-gradient(90deg, #6a64f6,#a96ddf,#c77fcd,#a789c9);
     background: linear-gradient(90deg, #6a64f6,#a96ddf,#c77fcd,#a789c9);
@@ -10,4 +13,45 @@ header {
 header a {
     color: white;
     text-decoration: none;
+}
+.main_menu {
+    margin: 10px;
+    background-color: white;
+    border: 1px solid grey;
+    border-radius: 5px;
+    padding: 15px;
+    text-align: center;
+}
+.menu_buttons {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+}
+.main_menu a {
+    text-align: center;
+    background-color: white;
+    display: block;
+    margin: 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: black;
+    padding: 5px;
+    border: 1px solid grey;
+    width: 200px;
+    transition: 0.1s;
+}
+.main_menu a:hover {
+    transform: scale(1.1);
+}
+.birthday_calendar {
+    display: grid;
+    grid-template-columns: 33.33% 33.33% 33.33%;
+}
+.dates_block {
+    text-align: center;
+    background-color: white;
+    border: 1px solid grey;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 10px;
 }
