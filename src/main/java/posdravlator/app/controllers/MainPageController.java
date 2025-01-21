@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class MainPageController {
     @GetMapping
     public String getMainPage(Model model) {
-        model.addAttribute("title", "Поздравлятор - Главная");
+        model.addAttribute("title", "Поздравлятор - Главная страница");
         return "main";
     }
 }
