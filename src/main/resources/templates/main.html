@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title th:text="${title}"></title>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="images/icon.png" />
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <header>
+        <a th:href="@{/}">
+            <h1>📅 Поздравлятор</h1>
+            <p>&nbsp;&nbsp;&nbsp;Ведение списка дней рождения</p>
+        </a>
+    </header>
+    <main>
+        <div class="birthday_calendar">
+            <div class="today_birthdays">
+
+            </div>
+            <div class="nearest_birthdays">
+    
+            </div>
+            <div class="future_birthdays">
+    
+            </div>
+        </div>
+    </main>
+    <script src="js/main.js"></script>
+</body>
+</html>
