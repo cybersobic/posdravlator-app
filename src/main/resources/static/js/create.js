@@ -26,7 +26,7 @@ async function sendDataToServer() {
         });
 
         if (!response.ok) {
-            throw new Error("Ошибка сервера: " + response.statusText);
+            throw new Error("Некорректные данные. Длина имени: 64 символа, длина описания: 128 символов.");
         }
 
         const data = await response.json();

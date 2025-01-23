@@ -22,7 +22,7 @@ async function sendUpdateRequest(id) {
         });
 
         if (!response.ok) {
-            throw new Error(response.statusText);
+            throw new Error("Некорректные данные. Длина имени: 64 символа, длина описания: 128 символов.");
         }
 
         await response.json();
