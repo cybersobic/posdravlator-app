@@ -8,10 +8,15 @@
 </head>
 <body>
     <header>
-        <a th:href="@{/}">
-            <h1>📅 Поздравлятор</h1>
-            <p>&nbsp;&nbsp;&nbsp;Ведение списка дней рождения</p>
-        </a>
+        <div class="header_title">
+            <a th:href="@{/}">
+                <h1>📅 Поздравлятор</h1>
+                <p>&nbsp;&nbsp;&nbsp;Ведение списка дней рождения</p>
+            </a>
+        </div>
+        <div class="header_date">
+            <h2 th:text="${localDate}"></h2>
+        </div>
     </header>
     <main>
         <div class="main_menu">
