@@ -64,3 +64,6 @@ header a {
     min-height: 200px;
     box-sizing: border-box;
 }
+.menu_buttons a {
+    cursor: pointer;
+}

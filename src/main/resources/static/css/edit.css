@@ -15,25 +15,25 @@
 .back_to_main:hover {
     transform: scale(1.1);
 }
-.create_panel {
+.edit_panel {
     background-color: white;
     padding: 20px;
     margin: 20px;
     border: 1px solid grey;
     border-radius: 5px;
 }
-.create_label {
+.edit_label {
     margin: 5px 0px 20px 0px;
 }
-.create_content input {
+.edit_content input {
     margin: 10px;
     font-size: 20px;
 }
-.create_content button {
+.edit_content button {
     margin: 10px;
     font-size: 20px;
 }
-.create {
+.edit {
     cursor: pointer;
     display: block;
     border: 1px solid grey;
@@ -50,6 +50,6 @@
     border-radius: 5px;
     transition: 0.1s;
 }
-.create:hover {
+.edit:hover {
     transform: scale(1.1);
 }

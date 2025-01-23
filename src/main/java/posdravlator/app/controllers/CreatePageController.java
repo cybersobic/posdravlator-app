@@ -12,20 +12,13 @@ import posdravlator.app.services.BirthdayService;
 
 @Controller
 @RequestMapping("/create")
-public class CreateController {
+public class CreatePageController {
     @Autowired
     private BirthdayService birthdayService;
 
     @GetMapping
     public String getCreatePage(Model model) {
         model.addAttribute("title", "Поздравлятор - Создание записи");
-        model.addAttribute("birthday", new Birthday());
         return "create";
-    }
-
-    @PostMapping
-    public String create(@ModelAttribute Birthday birthday) {
-        birthdayService.createBirthday(birthday);
-        return "redirect:/login";
     }
 }

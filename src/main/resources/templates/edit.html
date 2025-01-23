@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <link rel="icon" type="image/x-icon" href="images/icon.png" />
     <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/create.css">
+    <link rel="stylesheet" href="css/edit.css">
 </head>
 <body>
 <header>
@@ -18,20 +18,20 @@
     <a class="back_to_main" th:href="@{/}">
         <p>⬅️ Вернуться назад</p>
     </a>
-    <div class="create_panel">
-        <div class="create_label">
-            <h2>Создание новой записи:</h2>
+    <div class="edit_panel">
+        <div class="edit_label">
+            <h2>Редактирование записи:</h2>
         </div>
-        <div class="create_content">
-            <input type="text" placeholder="Введите имя" id="name"><br>
-            <input type="text" placeholder="Введите описание" id="description"><br>
+        <div class="edit_content">
+            <input type="text" placeholder="Имя" id="name"><br>
+            <input type="text" placeholder="Описание" id="description"><br>
             <input type="date" id="date"><br>
-            <a class="create" id="send_to_server">
-                <p>Подтвердить ✅</p>
+            <a class="edit" id="send_to_server">
+                <p id="send_updated_to_server">Изменить ✅</p>
             </a>
         </div>
     </div>
 </main>
-<script src="js/create.js"></script>
+<script src="js/edit.js"></script>
 </body>
 </html>

@@ -18,7 +18,6 @@ public class Birthday {
     @Column(name = "name", length = 64)
     private String name;
 
-    @NotBlank(message = "Описание не может быть пустым")
     @Size(max = 128, message = "Описание не может содержать более 128 символов")
     @Column(name = "description", length = 128)
     private String description;

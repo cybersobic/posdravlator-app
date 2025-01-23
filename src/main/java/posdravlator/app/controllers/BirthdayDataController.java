@@ -12,7 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/birthdays")
-public class BirthdayController {
+public class BirthdayDataController {
     @Autowired
     private BirthdayService birthdayService;
 

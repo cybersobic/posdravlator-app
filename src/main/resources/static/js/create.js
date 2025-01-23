@@ -7,13 +7,13 @@ async function sendDataToServer() {
     var bDescription = document.getElementById("description").value;
     var bDate = document.getElementById("date").value;
 
-    if (!bName || !bDescription || !bDate) {
-        alert("Пожалуйста, заполните все поля!");
+    if (!bName || !bDate) {
+        alert("Пожалуйста, заполните все поля корректно!");
         return;
     }
 
     try {
-        const response = await fetch('http://localhost:8080/birthdays', {
+        const response = await fetch('/birthdays', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -30,6 +30,8 @@ async function sendDataToServer() {
         }
 
         const data = await response.json();
+
+        alert("Запись успешно добавлена.");
 
         window.location.href = "/";
     }
