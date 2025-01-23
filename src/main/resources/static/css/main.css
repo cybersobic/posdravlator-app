@@ -20,12 +20,12 @@ header a {
     text-overflow: ellipsis;
 }
 .main_menu {
-    margin: 10px;
     background-color: white;
     border: 1px solid grey;
     border-radius: 5px;
     padding: 15px;
     text-align: center;
+    margin: 15px 25px 5px 25px;
 }
 .menu_buttons {
     display: flex;
@@ -52,18 +52,46 @@ header a {
     display: grid;
     grid-template-columns: 33.33% 33.33% 33.33%;
     min-height: 70vh;
+    margin: 5px 15px 5px 15px;
 }
-.dates_block {
+.dates_title {
     text-align: center;
     background-color: white;
     border: 1px solid grey;
     border-radius: 5px;
     padding: 20px;
     margin: 10px;
+}
+.dates_block {
+    text-align: center;
+    background-color: white;
+    border: 1px solid grey;
+    border-radius: 5px;
+    padding: 0 20px 0 20px;
+    margin: 10px;
     flex-grow: 1;
     min-height: 200px;
     box-sizing: border-box;
+    max-height: 580px;
+    overflow-y: auto;
 }
 .menu_buttons a {
     cursor: pointer;
+}
+.birthdays {
+    display: grid;
+    grid-template-columns: 5% 25% 70%;
+    margin: 15px 3px 15px 3px;
+    border: 1px solid grey;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: whitesmoke;
+    align-items: center;
+}
+.birthday_avatar img {
+    max-width: 85px;
+    height: auto;
+}
+.name, .description, .date {
+    margin: 5px;
 }

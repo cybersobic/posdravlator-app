@@ -31,26 +31,33 @@
             </div>
         </div>
         <div class="birthday_calendar">
-            <div class="dates_block">
+            <div>
                 <div class="dates_title">
                     <h2>🥳 Сегодня день рождения отмечают:</h2>
                 </div>
-                <div class="dates_content"></div>
-            </div>
-            <div class="dates_block">
-                <div class="dates_title">
-                    <h2>😊 Скоро день рождения будут отмечать:</h2>
+                <div class="dates_block">
+                    <div class="dates_content" id="today"></div>
                 </div>
-                <div class="dates_content"></div>
             </div>
-            <div class="dates_block">
+            <div>
+                <div class="dates_title">
+                    <h2>😊 Скоро день рождения отмечают:</h2>
+                </div>
+                <div class="dates_block">
+                    <div class="dates_content" id="soon"></div>
+                </div>
+            </div>
+            <div>
                 <div class="dates_title">
                     <h2>😉 Будущие дни рождения:</h2>
                 </div>
-                <div class="dates_content"></div>
+                <div class="dates_block">
+                    <div class="dates_content" id="future"></div>
+                </div>
             </div>
         </div>
     </main>
     <script src="js/main.js"></script>
+    <script src="js/birthdaysFeed.js"></script>
 </body>
 </html>
