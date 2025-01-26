@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import posdravlator.app.models.Birthday;
 import posdravlator.app.repos.BirthdayRepository;
 import java.time.LocalDate;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -39,13 +40,15 @@ public class FeedService {
         return dates.stream()
                 .filter(birthday -> {
                     LocalDate birthdayDate = birthday.getDate().withYear(today.getYear());
-
                     if (birthdayDate.isBefore(today)) {
                         birthdayDate = birthdayDate.plusYears(1);
                     }
-
-                    return (birthdayDate.isAfter(today) && !birthdayDate.isAfter(nextWeek));
+                    return birthdayDate.isAfter(today) && !birthdayDate.isAfter(nextWeek);
                 })
+                .sorted(Comparator.comparing(birthday -> {
+                    LocalDate birthdayDate = birthday.getDate().withYear(today.getYear());
+                    return birthdayDate.isBefore(today) ? birthdayDate.plusYears(1) : birthdayDate;
+                }))
                 .collect(Collectors.toList());
     }
 
@@ -66,6 +69,12 @@ public class FeedService {
 
                     return birthdayDate.isAfter(nextWeek);
                 })
+                .sorted(Comparator.comparing(birthday -> {
+                    LocalDate birthdayDate = birthday.getDate().withYear(today.getYear());
+
+                    return birthdayDate.isBefore(today) ? birthdayDate.plusYears(1) : birthdayDate;
+                }))
                 .collect(Collectors.toList());
     }
+
 }
