@@ -17,10 +17,7 @@ public class BirthdayDataController {
     private BirthdayService birthdayService;
 
     @GetMapping
-    public ResponseEntity<List<Birthday>> getAllBirthdays(
-            @RequestParam(required = false) String name,
-            @RequestParam(required = false) String description,
-            @RequestParam(required = false) LocalDate date) {
+    public ResponseEntity<List<Birthday>> getAllBirthdays() {
         List<Birthday> birthdays = birthdayService.getAllBirthdays();
         return ResponseEntity.ok(birthdays);
     }
