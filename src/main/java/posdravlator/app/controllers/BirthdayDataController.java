@@ -7,7 +7,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import posdravlator.app.models.Birthday;
 import posdravlator.app.services.BirthdayService;
-import java.time.LocalDate;
 import java.util.List;
 
 @RestController

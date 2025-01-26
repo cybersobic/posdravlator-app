@@ -72,9 +72,8 @@ header a {
     padding: 0 15px 0 15px;
     margin: 10px;
     flex-grow: 1;
-    min-height: 200px;
     box-sizing: border-box;
-    max-height: 580px;
+    height: 515px;
     overflow-y: auto;
 }
 .menu_buttons a {

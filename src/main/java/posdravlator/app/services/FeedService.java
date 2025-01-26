@@ -14,67 +14,68 @@ public class FeedService {
     @Autowired
     private BirthdayRepository birthdayRepository;
 
+    private final int DAYS = 7;
+
+    private List<Birthday> getAllBirthdays() {
+        return birthdayRepository.findAll();
+    }
+
     public List<Birthday> getTodayBirthdays() {
-        List<Birthday> dates = birthdayRepository.findAll();
-        LocalDate now = LocalDate.now();
-        String currentMonthDay = String.format("%02d%02d", now.getMonthValue(), now.getDayOfMonth());
+        List<Birthday> dates = getAllBirthdays();
+        LocalDate today = LocalDate.now();
+        String currentMonthDay = String.format("%02d%02d", today.getMonthValue(), today.getDayOfMonth());
 
         return dates.stream().filter(birthday -> {
             LocalDate birthdayDate = birthday.getDate();
 
             String birthdayMonthDay = String.format("%02d%02d",
-                    birthdayDate.getMonthValue(),
-                    birthdayDate.getDayOfMonth());
+                birthdayDate.getMonthValue(),
+                birthdayDate.getDayOfMonth());
 
             return birthdayMonthDay.equals(currentMonthDay);
         }).collect(Collectors.toList());
     }
 
     public List<Birthday> getSoonBirthdays() {
-        final int DAYS = 7;
-
-        List<Birthday> dates = birthdayRepository.findAll();
+        List<Birthday> dates = getAllBirthdays();
         LocalDate today = LocalDate.now();
         LocalDate nextWeek = today.plusDays(DAYS);
 
         return dates.stream()
-                .filter(birthday -> {
-                    LocalDate birthdayDate = birthday.getDate().withYear(today.getYear());
-                    if (birthdayDate.isBefore(today)) {
-                        birthdayDate = birthdayDate.plusYears(1);
-                    }
-                    return birthdayDate.isAfter(today) && !birthdayDate.isAfter(nextWeek);
-                })
-                .sorted(Comparator.comparing(birthday -> {
-                    LocalDate birthdayDate = birthday.getDate().withYear(today.getYear());
-                    return birthdayDate.isBefore(today) ? birthdayDate.plusYears(1) : birthdayDate;
-                }))
-                .collect(Collectors.toList());
+            .filter(birthday -> {
+                LocalDate birthdayDate = birthday.getDate().withYear(today.getYear());
+                if (birthdayDate.isBefore(today)) {
+                    birthdayDate = birthdayDate.plusYears(1);
+                }
+                return birthdayDate.isAfter(today) && !birthdayDate.isAfter(nextWeek);
+            })
+            .sorted(Comparator.comparing(birthday -> {
+                LocalDate birthdayDate = birthday.getDate().withYear(today.getYear());
+                return birthdayDate.isBefore(today) ? birthdayDate.plusYears(1) : birthdayDate;
+            }))
+            .collect(Collectors.toList());
     }
 
     public List<Birthday> getFutureBirthdays() {
-        final int DAYS = 7;
-
-        List<Birthday> dates = birthdayRepository.findAll();
+        List<Birthday> dates = getAllBirthdays();
         LocalDate today = LocalDate.now();
         LocalDate nextWeek = today.plusDays(DAYS);
 
         return dates.stream()
-                .filter(birthday -> {
-                    LocalDate birthdayDate = birthday.getDate().withYear(today.getYear());
+            .filter(birthday -> {
+                LocalDate birthdayDate = birthday.getDate().withYear(today.getYear());
 
-                    if (birthdayDate.isBefore(today)) {
-                        birthdayDate = birthdayDate.plusYears(1);
-                    }
+                if (birthdayDate.isBefore(today)) {
+                    birthdayDate = birthdayDate.plusYears(1);
+                }
 
-                    return birthdayDate.isAfter(nextWeek);
-                })
-                .sorted(Comparator.comparing(birthday -> {
-                    LocalDate birthdayDate = birthday.getDate().withYear(today.getYear());
+                return birthdayDate.isAfter(nextWeek);
+            })
+            .sorted(Comparator.comparing(birthday -> {
+                LocalDate birthdayDate = birthday.getDate().withYear(today.getYear());
 
-                    return birthdayDate.isBefore(today) ? birthdayDate.plusYears(1) : birthdayDate;
-                }))
-                .collect(Collectors.toList());
+                return birthdayDate.isBefore(today) ? birthdayDate.plusYears(1) : birthdayDate;
+            }))
+            .collect(Collectors.toList());
     }
-
 }
