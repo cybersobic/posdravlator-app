@@ -17,9 +17,9 @@ public class ImageService {
 
     public String uploadImage(MultipartFile file) throws IOException {
         return gridFsOperations.store(
-                file.getInputStream(),
-                file.getOriginalFilename(),
-                file.getContentType()
+            file.getInputStream(),
+            file.getOriginalFilename(),
+            file.getContentType()
         ).toString();
     }
 

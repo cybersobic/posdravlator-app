@@ -52,7 +52,7 @@ public class ImageController {
         String contentType = imageService.getImageType(birthday.getImage());
 
         return ResponseEntity.ok()
-                .contentType(MediaType.parseMediaType(contentType))
-                .body(photoData);
+            .contentType(MediaType.parseMediaType(contentType))
+            .body(photoData);
     }
 }

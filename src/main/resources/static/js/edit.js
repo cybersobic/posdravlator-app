@@ -4,11 +4,18 @@ async function sendUpdateRequest(id) {
     var Bdate = document.getElementById("date").value;
     var photo = document.getElementById("photo").files[0];
 
+    var today = new Date().toISOString().split("T")[0];
+
     if (!Bname || !Bdate) {
         alert("Пожалуйста, заполните все поля корректно!");
         return;
     }
 
+    if (Bdate > today) {
+        alert("Дата рождения не может быть в будущем.");
+        return;
+    }
+    
     try {
         const response = await fetch(`/birthdays/${id}`, {
             method: 'PUT',
