@@ -1,6 +1,6 @@
 version: '3.8'
 services:
-  api:
+  app:
     build:
       context: .
       dockerfile: Dockerfile
@@ -26,5 +26,16 @@ services:
     volumes:
       - postgres-data:/var/lib/postgresql/data
 
+  mongo:
+    image: mongo:7.0
+    container_name: mongo-container
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+    environment:
+      MONGO_INITDB_DATABASE: posdravlator
+
 volumes:
   postgres-data:
+  mongo-data:
