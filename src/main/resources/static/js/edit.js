@@ -2,6 +2,7 @@ async function sendUpdateRequest(id) {
     var Bname = document.getElementById("name").value;
     var Bdescription = document.getElementById("description").value;
     var Bdate = document.getElementById("date").value;
+    var photo = document.getElementById("photo").files[0];
 
     if (!Bname || !Bdate) {
         alert("Пожалуйста, заполните все поля корректно!");
@@ -25,7 +26,23 @@ async function sendUpdateRequest(id) {
             throw new Error("Некорректные данные. Длина имени: 64 символа, длина описания: 128 символов.");
         }
 
-        await response.json();
+        const updatedBirthday = await response.json();
+
+        const birthdayId = updatedBirthday.id;
+
+        if (photo) {
+            const formData = new FormData();
+            formData.append("photo", photo);
+
+            const photoResponse = await fetch(`/images/upload/${birthdayId}`, {
+                method: 'POST',
+                body: formData,
+            });
+
+            if (!photoResponse.ok) {
+                throw new Error("Ошибка при загрузке изображения.");
+            }
+        }
 
         alert("Запись успешно изменена.");
 
@@ -54,10 +71,20 @@ async function getBirthdayDataById(id) {
         var Bname = document.getElementById("name");
         var Bdescription = document.getElementById("description");
         var Bdate = document.getElementById("date");
+        var currentPhotoImg = document.getElementById("current_photo_img");
 
         Bname.value = data.name;
         Bdescription.value = data.description;
         Bdate.value = data.date;
+
+        if (data.image) {
+            currentPhotoImg.src = `/images/get/${data.id}`;
+            currentPhotoImg.style.display = 'block';
+        } 
+        else {
+            currentPhotoImg.src = "images/default_avatar.png";
+            currentPhotoImg.style.display = 'block';
+        }
     }
     catch (error) {
         console.error('Ошибка:', error);
@@ -65,7 +92,6 @@ async function getBirthdayDataById(id) {
 }
 
 const urlParams = new URLSearchParams(window.location.search);
-
 const id = urlParams.get('id');
 
 if (id) {

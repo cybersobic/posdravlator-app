@@ -8,8 +8,15 @@ async function sendDataToServer() {
     var bDate = document.getElementById("date").value;
     var photo = document.getElementById("photo").files[0];
 
+    var today = new Date().toISOString().split("T")[0];
+
     if (!bName || !bDate) {
         alert("Пожалуйста, заполните все поля корректно!");
+        return;
+    }
+
+    if (bDate > today) {
+        alert("Дата рождения не может быть в будущем.");
         return;
     }
 

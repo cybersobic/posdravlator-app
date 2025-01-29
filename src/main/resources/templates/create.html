@@ -8,31 +8,36 @@
     <link rel="stylesheet" href="css/create.css">
 </head>
 <body>
-<header>
-    <a th:href="@{/}">
-        <h1>📅 Поздравлятор</h1>
-        <p>&nbsp;&nbsp;&nbsp;Ведение списка дней рождения</p>
-    </a>
-</header>
-<main>
-    <a class="back_to_main" th:href="@{/}">
-        <p>⬅️ Вернуться назад</p>
-    </a>
-    <div class="create_panel">
-        <div class="create_label">
-            <h2>Создание новой записи:</h2>
-        </div>
-        <div class="create_content">
-            <input type="file" id="photo"><br>
-            <input type="text" placeholder="Введите имя" id="name"><br>
-            <input type="text" placeholder="Введите описание" id="description"><br>
-            <input type="date" id="date"><br>
-            <a class="create" id="send_to_server">
-                <p>Подтвердить ✅</p>
+    <header>
+        <div class="header_title">
+            <a th:href="@{/}">
+                <h1>📅 Поздравлятор</h1>
+                <p>&nbsp;&nbsp;&nbsp;Ведение списка дней рождения</p>
             </a>
         </div>
-    </div>
-</main>
-<script src="js/create.js"></script>
+        <div class="header_date">
+            <h2 id="localdate" th:text="${localDate}"></h2>
+        </div>
+    </header>
+    <main>
+        <a class="back_to_main" th:href="@{/}">
+            <p>⬅️ Вернуться назад</p>
+        </a>
+        <div class="create_panel">
+            <div class="create_label">
+                <h2>Создание новой записи:</h2>
+            </div>
+            <div class="create_content">
+                <input type="file" id="photo"><br>
+                <input type="text" placeholder="Введите имя" id="name"><br>
+                <input type="text" placeholder="Введите описание" id="description"><br>
+                <input type="date" id="date" max=""><br>
+                <a class="create" id="send_to_server">
+                    <p>Подтвердить ✅</p>
+                </a>
+            </div>
+        </div>
+    </main>
+    <script src="js/create.js"></script>
 </body>
 </html>

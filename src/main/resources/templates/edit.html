@@ -8,30 +8,39 @@
     <link rel="stylesheet" href="css/edit.css">
 </head>
 <body>
-<header>
-    <a th:href="@{/}">
-        <h1>📅 Поздравлятор</h1>
-        <p>&nbsp;&nbsp;&nbsp;Ведение списка дней рождения</p>
-    </a>
-</header>
-<main>
-    <a class="back_to_main" th:href="@{/}">
-        <p>⬅️ Вернуться назад</p>
-    </a>
-    <div class="edit_panel">
-        <div class="edit_label">
-            <h2>Редактирование записи:</h2>
-        </div>
-        <div class="edit_content">
-            <input type="text" placeholder="Имя" id="name"><br>
-            <input type="text" placeholder="Описание" id="description"><br>
-            <input type="date" id="date"><br>
-            <a class="edit" id="send_to_server">
-                <p id="send_updated_to_server">Изменить ✅</p>
+    <header>
+        <div class="header_title">
+            <a th:href="@{/}">
+                <h1>📅 Поздравлятор</h1>
+                <p>&nbsp;&nbsp;&nbsp;Ведение списка дней рождения</p>
             </a>
         </div>
-    </div>
-</main>
-<script src="js/edit.js"></script>
+        <div class="header_date">
+            <h2 id="localdate" th:text="${localDate}"></h2>
+        </div>
+    </header>
+    <main>
+        <a class="back_to_main" th:href="@{/}">
+            <p>⬅️ Вернуться назад</p>
+        </a>
+        <div class="edit_panel">
+            <div class="edit_label">
+                <h2>Редактирование записи:</h2>
+            </div>
+            <div class="edit_content">
+                <div id="current_photo">
+                    <img src="" id="current_photo_img" alt="Текущее фото" style="max-width: 200px; max-height: 200px; display: none;">
+                </div>
+                <input type="file" id="photo"><br>
+                <input type="text" placeholder="Имя" id="name"><br>
+                <input type="text" placeholder="Описание" id="description"><br>
+                <input type="date" id="date" max=""><br>
+                <a class="edit" id="send_to_server">
+                    <p id="send_updated_to_server">Изменить ✅</p>
+                </a>
+            </div>
+        </div>
+    </main>
+    <script src="js/edit.js"></script>
 </body>
 </html>

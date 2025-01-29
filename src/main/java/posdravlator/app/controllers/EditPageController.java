@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import posdravlator.app.services.BirthdayService;
+import posdravlator.app.services.MainPageService;
 
 @Controller
 @RequestMapping("/edit")
@@ -12,9 +13,13 @@ public class EditPageController {
     @Autowired
     private BirthdayService birthdayService;
 
+    @Autowired
+    private MainPageService mainPageService;
+
     @GetMapping
     public String getEditPage(Model model) {
         model.addAttribute("title", "Поздравлятор - Редактирование записи");
+        model.addAttribute("localDate", "Сегодня: " + mainPageService.getDate());
         return "edit";
     }
 }
