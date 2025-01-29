@@ -26,6 +26,9 @@ public class Birthday {
     @Column(name = "date")
     private LocalDate date;
 
+    @Column(name = "image")
+    private String image;
+
     public Long getId() {
         return id;
     }
@@ -56,5 +59,13 @@ public class Birthday {
 
     public void setDate(LocalDate date) {
         this.date = date;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 }

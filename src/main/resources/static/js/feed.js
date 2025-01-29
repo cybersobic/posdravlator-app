@@ -4,7 +4,9 @@ async function outputBlockElements(block, data) {
             const birthdayElement = document.createElement('div');
             
             birthdayElement.classList.add('birthdays');
-            
+
+            const imgSrc = d.image ? `/images/get/${d.id}` : "images/default_avatar.png";
+
             birthdayElement.innerHTML = `
                 <div class="birthday_id">
                     <div class="id">
@@ -12,7 +14,7 @@ async function outputBlockElements(block, data) {
                     </div>
                 </div>
                 <div class="birthday_avatar">
-                    <img src="images/default_avatar.png">
+                    <img src="${imgSrc}" alt="Не удалось загрузить фото">
                 </div>
                 <div class="birthday_data">
                     <div class="name">

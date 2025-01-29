@@ -14,7 +14,7 @@ public class FeedService {
     @Autowired
     private BirthdayRepository birthdayRepository;
 
-    private final int DAYS = 7;
+    private final int DAYS = 14;
 
     private List<Birthday> getAllBirthdays() {
         return birthdayRepository.findAll();

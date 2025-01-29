@@ -6,6 +6,7 @@ async function sendDataToServer() {
     var bName = document.getElementById("name").value;
     var bDescription = document.getElementById("description").value;
     var bDate = document.getElementById("date").value;
+    var photo = document.getElementById("photo").files[0];
 
     if (!bName || !bDate) {
         alert("Пожалуйста, заполните все поля корректно!");
@@ -29,7 +30,22 @@ async function sendDataToServer() {
             throw new Error("Некорректные данные. Длина имени: 64 символа, длина описания: 128 символов.");
         }
 
-        const data = await response.json();
+        const birthday = await response.json();
+        const birthdayId = birthday.id;
+
+        if (photo) {
+            const formData = new FormData();
+            formData.append("photo", photo);
+
+            const photoResponse = await fetch(`/images/upload/${birthdayId}`, {
+                method: 'POST',
+                body: formData,
+            });
+
+            if (!photoResponse.ok) {
+                throw new Error("Ошибка при загрузке изображения.");
+            }
+        }
 
         alert("Запись успешно добавлена.");
 

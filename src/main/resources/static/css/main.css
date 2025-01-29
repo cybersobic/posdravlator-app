@@ -92,6 +92,7 @@ header a {
 .birthday_avatar img {
     max-width: 85px;
     height: auto;
+    border-radius: 10px;
 }
 .name, .description, .date {
     margin: 5px;
